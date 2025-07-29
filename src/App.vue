@@ -1,12 +1,9 @@
 <template>
-<div style="background: repeating-linear-gradient(white 0, white 20px, #FDCE4380 20px, #FDCE4380 35px);">
-  <div style="display: flex; flex-direction: column; align-items: start;
-    background: repeating-linear-gradient(90deg, transparent 0, transparent 20px, #FDCE4380 20px, #FDCE4380 35px);">
-    <my-knob v-model="value"></my-knob>
-    <my-slider v-model="value"></my-slider>
-    <my-spin v-model="value"></my-spin>
-    <my-gear v-model="value"></my-gear>
-  </div>  
+<div style="display: flex; flex-direction: column; align-items: start; background-color: lightblue;">
+  <my-knob v-model="value"></my-knob>
+  <my-slider v-model="value"></my-slider>
+  <my-spin v-model="value"></my-spin>
+  <my-gear v-model="value"></my-gear>
 </div>
 </template>
 

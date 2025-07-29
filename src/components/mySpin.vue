@@ -77,7 +77,6 @@ const startDrag = (event) => {
 }
 
 const getMousePosition = (event) => {
-  console.log(event.clientY - centerY, event.clientX - centerX)
   let currentTheta = Math.atan2(event.clientY - centerY, event.clientX - centerX)
   let dTheta = currentTheta - lastTheta
 
