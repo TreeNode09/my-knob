@@ -3,20 +3,19 @@
   @pointermove="getMousePosition" @pointerup="dragging = false" @pointerout="cancelDrag">
 </div>
 <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; margin: 10px;
-  padding: 5px 10px 10px 10px; background-color: #FFF; ; border-radius: 10px;
+  padding: 5px 10px 10px 10px; position: relative; background-color: #FFF; border-radius: 10px;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5), inset 0px -5px 2px rgba(0, 0, 0, 0.2)">
   <div id="outer" ref="spin" style="width: 100px; height: 100px; border-radius: 50%;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.7); display: flex; align-items: center; justify-content: center;
     background: repeating-conic-gradient(#FFF 0%, #EEE 1%, #EEE 2%, #CCC 3%, #DDD 3%, #EEE 5%);"
     :style="{transform: `rotate(${currentAngle}deg)`, transition: dragging ? 'none' : 'all 0.2s'}"
     @pointerdown="startDrag" @pointerover="changeCursor('grab')"
-    @pointerleave="() => {if (!dragging) {changeCursor('default')}}">
-    <div id="inner" style="width: 75px; height: 75px; background-color: #fff; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.5);"
-      :style="{transform: `rotate(${-currentAngle}deg)`, transition: dragging ? 'none' : 'all 0.2s'}">
-        <digits :model="model"></digits>      
-    </div>
+    @pointerleave="() => {if (!dragging) {changeCursor('default')}}"></div>
+  <div id="inner" style="width: 75px; height: 75px; background-color: #fff; border-radius: 50%;
+    position: absolute; top: 17.5px; left: 22.5px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.5);">
+    <digits :model="model"></digits>
   </div>
 </div>
 </template>
