@@ -4,7 +4,7 @@
 </div>
 <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; margin: 10px;
   padding: 5px 10px 10px 10px; background-color: #FFF; ; border-radius: 10px;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2), inset 0px -5px 2px rgba(0, 0, 0, 0.1)">
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5), inset 0px -5px 2px rgba(0, 0, 0, 0.2)">
   <div id="outer" ref="spin" style="width: 100px; height: 100px; border-radius: 50%;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.7); display: flex; align-items: center; justify-content: center;
     background: repeating-conic-gradient(#FFF 0%, #EEE 1%, #EEE 2%, #CCC 3%, #DDD 3%, #EEE 5%);"

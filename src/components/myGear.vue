@@ -5,7 +5,7 @@
 <div style="margin: 10px">
   <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;
     padding: 5px 10px 10px 10px; background-color: #FFF; border-radius: 10px;
-    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2), inset 0px -5px 2px rgba(0, 0, 0, 0.1)">
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5), inset 0px -5px 2px rgba(0, 0, 0, 0.2)">
     <digits :model="model"></digits>
     <div style="width: 50px; height: 20px; margin: 4px 10px 0  10px;
       display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between;">
@@ -17,7 +17,7 @@
     display: flex; align-items: flex-end; justify-content: center;
     box-shadow: 0px -13px 3px -12px rgba(0, 0, 0, 0.5)">
     <div style="width: 70px; height: 70px; margin-bottom: 10px; border-radius: 50%;
-      box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);">
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);">
       <div style="width: 70px; height: 70px; border-radius: 50%; box-sizing: border-box;
         display: flex; align-items: center; justify-content: center; outline: dashed 3px #FFF;
         background: radial-gradient(#AAA 0, #FFF 55%, #FFF 60%, #DDD 60%, #EEE 63%, #DDD 66%, #FFF 70%);"

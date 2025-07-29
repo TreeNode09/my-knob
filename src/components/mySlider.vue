@@ -4,7 +4,7 @@
 </div>
 <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; margin: 10px;
   padding: 5px 10px 10px 10px; background-color: #FFF; ; border-radius: 10px;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2), inset 0px -5px 2px rgba(0, 0, 0, 0.1)">
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5), inset 0px -5px 2px rgba(0, 0, 0, 0.2)">
   <digits :model="model"></digits>
   <div style="width: 16px; height: 16px; margin-top: 6px; background-color: #FFF; border-radius: 2px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2), inset 0px -2px 2px rgba(0, 0, 0, 0.1);
