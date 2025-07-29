@@ -17,7 +17,8 @@
     display: flex; align-items: flex-end; justify-content: center;
     box-shadow: 0px -13px 3px -12px rgba(0, 0, 0, 0.5)">
     <div style="width: 70px; height: 70px; margin-bottom: 10px; border-radius: 50%;
-      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);">
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5); transition: all 0.2s;"
+      :style="{transform: `translateY(${active ? '0': '-3px'})`}">
       <div style="width: 70px; height: 70px; border-radius: 50%; box-sizing: border-box;
         display: flex; align-items: center; justify-content: center; outline: dashed 3px #FFF;
         background: radial-gradient(#AAA 0, #FFF 55%, #FFF 60%, #DDD 60%, #EEE 63%, #DDD 66%, #FFF 70%);"
@@ -52,6 +53,7 @@ const currentAngle = ref(0)
 const currentValue = ref(0)
 const originalValue = ref(0)
 
+const active = ref(false)
 const dragging = ref(false)
 
 let lastX = -1
@@ -105,5 +107,7 @@ const cancelDrag = () => {
 const changeCursor = (newCursor) => {
   const body = document.querySelector('body')
   body.style.cursor = newCursor
+  if (newCursor !== 'default') {active.value = true}
+  else {active.value = false}
 }
 </script>

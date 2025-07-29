@@ -9,7 +9,8 @@
   <div style="width: 16px; height: 16px; margin-top: 6px; background-color: #FFF; border-radius: 2px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2), inset 0px -2px 2px rgba(0, 0, 0, 0.1);
     display: flex; align-items: top; justify-content: center;"
-    :style="{transform: `translateX(${currentDist + 16}px)`, transition: dragging ? 'none' : 'all 0.2s'}"
+    :style="{transform: `translateX(${currentDist + 16}px) translateY(${active ? '-3px': '0'})`,
+    transition: dragging ? 'none' : 'all 0.2s'}"
     @pointerdown="startDrag" @pointerover="changeCursor('ew-resize')"
     @pointerleave="() => {if (!dragging) {changeCursor('default')}}">
     <div style="width: 3px; height: 3px; border-radius: 50%; margin-top: 2px;
@@ -51,6 +52,7 @@ const currentDist = ref(0)
 const currentValue = ref(0)
 const originalValue = ref(0)
 
+const active = ref(false)
 const dragging = ref(false)
 
 let lastX = -1
@@ -104,5 +106,7 @@ const cancelDrag = () => {
 const changeCursor = (newCursor) => {
   const body = document.querySelector('body')
   body.style.cursor = newCursor
+  if (newCursor !== 'default') {active.value = true}
+  else {active.value = false}
 }
 </script>

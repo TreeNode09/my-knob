@@ -9,8 +9,9 @@
   <div style="width: 30px;">
     <sort theme="filled" size="16" fill="#AAA" strokeLinejoin="miter"/>
   </div>
-  <div style="width: 30px; height: 30px; background-color: #FFF; border-radius: 50%;
+  <div style="width: 30px; height: 30px; background-color: #FFF; border-radius: 50%; transition: all 0.2s;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2), inset 0px -2px 1px rgba(0, 0, 0, 0.1);"
+    :style="{transform: `translateY(${active ? '-3px': '0'})`}"
     @pointerdown="startDrag" @pointerover="changeCursor('ns-resize')"
     @pointerleave="() => {if (!dragging) {changeCursor('default')}}">
     <div style="width: 100%; height: 100%; display: flex; align-items: top; justify-content: center;
@@ -42,6 +43,7 @@ const currentAngle = ref(0)
 const currentValue = ref(0)
 const originalValue = ref(0)
 
+const active = ref(false)
 const dragging = ref(false)
 
 let lastY = -1
@@ -95,5 +97,7 @@ const cancelDrag = () => {
 const changeCursor = (newCursor) => {
   const body = document.querySelector('body')
   body.style.cursor = newCursor
+  if (newCursor !== 'default') {active.value = true}
+  else {active.value = false}
 }
 </script>
