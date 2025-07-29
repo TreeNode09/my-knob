@@ -9,8 +9,8 @@
     <digits :model="model"></digits>
     <div style="width: 50px; height: 20px; margin: 4px 10px 0  10px;
       display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between;">
-      <minus theme="outline" size="9" fill="#AAA"/>
-      <plus theme="outline" size="9" fill="#AAA"/>
+      <minus theme="outline" size="9" :fill="dX < 0 ? '#F8CA30' : '#AAA'" stroke-width="8"/>
+      <plus theme="outline" size="9" :fill="dX > 0 ? '#F8CA30' : '#AAA'" stroke-width="8"/>
     </div>
   </div>
   <div style="width: 90px; height: 25px; margin-left: 60px; overflow: hidden;
@@ -52,6 +52,7 @@ const model = defineModel()
 const currentAngle = ref(0)
 const currentValue = ref(0)
 const originalValue = ref(0)
+const dX = ref(NaN)
 
 const active = ref(false)
 const dragging = ref(false)
@@ -83,11 +84,11 @@ const startDrag = (event) => {
 }
 
 const getMousePosition = (event) => {
-  const dX = event.screenX - lastX
-  const nextValue = currentValue.value + dX * props.valuePerLap / props.pixelPerLap
+  dX.value = event.screenX - lastX
+  const nextValue = currentValue.value + dX.value * props.valuePerLap / props.pixelPerLap
 
-  if (nextValue >= props.max && dX >= 0) {currentValue.value = props.max}
-  else if (nextValue <= props.min && dX <= 0) {currentValue.value = props.min}
+  if (nextValue >= props.max && dX.value >= 0) {currentValue.value = props.max}
+  else if (nextValue <= props.min && dX.value <= 0) {currentValue.value = props.min}
   else {currentValue.value = nextValue}
   
   if (props.step === 0) {model.value = currentValue.value}
@@ -108,6 +109,9 @@ const changeCursor = (newCursor) => {
   const body = document.querySelector('body')
   body.style.cursor = newCursor
   if (newCursor !== 'default') {active.value = true}
-  else {active.value = false}
+  else {
+    active.value = false
+    dX.value = NaN
+  }
 }
 </script>

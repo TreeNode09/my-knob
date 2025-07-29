@@ -6,8 +6,13 @@
   padding: 5px 10px 10px 10px; background-color: #FFF; ; border-radius: 10px;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5), inset 0px -5px 2px rgba(0, 0, 0, 0.2)">
   <digits :model="model"></digits>
-  <div style="width: 30px;">
-    <sort theme="filled" size="16" fill="#AAA" strokeLinejoin="miter"/>
+  <div style="width: 20px; height: 30px;position: relative;">
+    <div style="position: absolute; top: -2px; left: 4px;">
+      <up-one theme="filled" size="12" :fill="dY > 0 ? '#F8CA30' : '#AAA'" strokeLinejoin="miter"/>
+    </div>
+    <div style="position: absolute; top: 8px; left: 4px;">
+      <down-one theme="filled" size="12" :fill="dY < 0 ? '#F8CA30' : '#AAA'" strokeLinejoin="miter"/>
+    </div>
   </div>
   <div style="width: 30px; height: 30px; background-color: #FFF; border-radius: 50%; transition: all 0.2s;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2), inset 0px -2px 1px rgba(0, 0, 0, 0.1);"
@@ -25,7 +30,7 @@
 
 <script setup>
 import { ref, onMounted, watch } from 'vue'
-import { Sort } from '@icon-park/vue-next'
+import { DownOne, UpOne } from '@icon-park/vue-next'
 import digits from './digits.vue'
 
 const props = defineProps({
@@ -42,6 +47,7 @@ const model = defineModel()
 const currentAngle = ref(0)
 const currentValue = ref(0)
 const originalValue = ref(0)
+const dY = ref(NaN)
 
 const active = ref(false)
 const dragging = ref(false)
@@ -73,11 +79,11 @@ const startDrag = (event) => {
 }
 
 const getMousePosition = (event) => {
-  const dY = lastY - event.screenY
-  const nextValue = currentValue.value + dY * props.valuePerLap / props.pixelPerLap
+  dY.value = lastY - event.screenY
+  const nextValue = currentValue.value + dY.value * props.valuePerLap / props.pixelPerLap
 
-  if (nextValue >= props.max && dY >= 0) {currentValue.value = props.max}
-  else if (nextValue <= props.min && dY <= 0) {currentValue.value = props.min}
+  if (nextValue >= props.max && dY.value >= 0) {currentValue.value = props.max}
+  else if (nextValue <= props.min && dY.value <= 0) {currentValue.value = props.min}
   else {currentValue.value = nextValue}
   
   if (props.step === 0) {model.value = currentValue.value}
@@ -98,6 +104,9 @@ const changeCursor = (newCursor) => {
   const body = document.querySelector('body')
   body.style.cursor = newCursor
   if (newCursor !== 'default') {active.value = true}
-  else {active.value = false}
+  else {
+    active.value = false
+    dY.value = NaN
+  }
 }
 </script>
