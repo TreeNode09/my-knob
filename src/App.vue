@@ -1,7 +1,7 @@
 <template>
-<div style="background: repeating-linear-gradient(#A1EFE9 0, #A1EFE9 25px, #8DCEC9 25px, #8DCEC9 26px);">
+<div style="background: repeating-linear-gradient(white 0, white 20px, #FDCE4380 20px, #FDCE4380 35px);">
   <div style="display: flex; flex-direction: column; align-items: start;
-    background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0, transparent 5px, transparent 15px, #8DCEC9 15px, #8DCEC9 16px);">
+    background: repeating-linear-gradient(90deg, transparent 0, transparent 20px, #FDCE4380 20px, #FDCE4380 35px);">
     <my-knob v-model="value"></my-knob>
     <my-slider v-model="value"></my-slider>
     <my-spin v-model="value"></my-spin>
