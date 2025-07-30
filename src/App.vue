@@ -1,5 +1,15 @@
 <template>
-<div style="display: flex; flex-direction: column; align-items: start; background-color: lightblue;">
+<div style="display: flex; flex-direction: column; align-items: start; background-color: lightblue;"
+  :style="{
+    '--white': colors.palettes[colors.paletteOption].white,
+    '--light': colors.palettes[colors.paletteOption].light,
+    '--main': colors.palettes[colors.paletteOption].main,
+    '--dark': colors.palettes[colors.paletteOption].dark,
+    '--black': colors.palettes[colors.paletteOption].black,
+    '--shadowLight': colors.palettes[colors.paletteOption].shadowLight,
+    '--shadowMain': colors.palettes[colors.paletteOption].shadowMain,
+    '--shadowDark': colors.palettes[colors.paletteOption].shadowDark
+  }">
   <my-knob v-model="value"></my-knob>
   <my-slider v-model="value"></my-slider>
   <my-spin v-model="value"></my-spin>
@@ -9,11 +19,13 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useColor } from './stores/colors'
 import myKnob from './components/myKnob.vue'
 import mySlider from './components/mySlider.vue'
 import mySpin from './components/mySpin.vue'
 import myGear from './components/myGear.vue'
 
+const colors = useColor()
 const value = ref(0)
 </script>
 
@@ -21,6 +33,11 @@ const value = ref(0)
 body, #app {
   margin: 0;
   padding: 0;
+}
+
+*
+{
+  transition: background-color 0.2s;
 }
 
 @font-face {

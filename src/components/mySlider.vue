@@ -3,30 +3,30 @@
   @pointermove="getMousePosition" @pointerup="dragging = false" @pointerout="cancelDrag">
 </div>
 <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; margin: 10px;
-  padding: 5px 10px 10px 10px; background-color: #FFF; ; border-radius: 10px;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5), inset 0px -5px 2px rgba(0, 0, 0, 0.2)">
+  padding: 5px 10px 10px 10px; background-color: var(--white); border-radius: 10px;
+  box-shadow: 0px 5px 10px var(--shadowDark), inset 0px -5px 2px var(--shadowMain)">
   <digits :model="model"></digits>
-  <div style="width: 16px; height: 16px; margin-top: 6px; background-color: #FFF; border-radius: 2px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2), inset 0px -2px 2px rgba(0, 0, 0, 0.1);
+  <div style="width: 16px; height: 16px; margin-top: 6px; background-color: var(--white); border-radius: 2px;
+    box-shadow: 0px 2px 5px var(--shadowMain), inset 0px -2px 2px var(--shadowLight);
     display: flex; align-items: top; justify-content: center;"
     :style="{transform: `translateX(${currentDist + 16}px) translateY(${active ? '-3px': '0'})`,
     transition: dragging ? 'none' : 'all 0.2s'}"
     @pointerdown="startDrag" @pointerover="changeCursor('ew-resize')"
     @pointerleave="() => {if (!dragging) {changeCursor('default')}}">
     <div style="width: 3px; height: 3px; border-radius: 50%; margin-top: 2px;
-      background-color: #AAA;"></div>
+      background-color: var(--black);"></div>
   </div>
   <div style="display: flex; flex-direction: column; align-items: center;">
     <div style="width: calc(100% - 16px); height: 4px; border: 0; margin-bottom: 2px;
-      border-left: solid 1px #DDD;  border-right: solid 1px #DDD;
-      background: repeating-linear-gradient(90deg, #DDD, #DDD 1px, #0000 1px, #0000 4px, #DDD 4px, #DDD 5px);">
+      border-left: solid 1px var(--main);  border-right: solid 1px var(--main);
+      background: repeating-linear-gradient(90deg, var(--main), var(--main) 1px, #0000 1px, #0000 4px, var(--main) 4px, var(--main) 5px);">
     </div>
     <div style="display: flex; font-display: row;">
-      <div style="height: 16px; background-color: #EEE;
+      <div style="height: 16px; background-color: var(--light);
         border-radius: 2px; display: flex; align-items: center; justify-content: center;
         box-shadow: inset 0px -2px 5px rgba(0, 0, 0, 0.1), inset 0px 2px 5px rgba(0, 0, 0, 0.2);"
         :style="{'width': `${length + 16}px`}">
-        <div style="width: calc(100% - 16px); height: 4px; border-radius: 2px; background-color: #CCC;
+        <div style="width: calc(100% - 16px); height: 4px; border-radius: 2px; background-color: var(--dark);
           box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.2);"></div>
       </div>
     </div>

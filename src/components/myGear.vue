@@ -4,31 +4,31 @@
 </div>
 <div style="margin: 10px">
   <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;
-    padding: 5px 10px 10px 10px; background-color: #FFF; border-radius: 10px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5), inset 0px -5px 2px rgba(0, 0, 0, 0.2)">
+    padding: 5px 10px 10px 10px; background-color: var(--white); border-radius: 10px;
+    box-shadow: 0px 5px 10px var(--shadowDark), inset 0px -5px 2px var(--shadowMain)">
     <digits :model="model"></digits>
     <div style="width: 50px; height: 20px; margin: 4px 10px 0 10px;
       display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between;">
-        <minus theme="outline" size="9" :fill="dX < 0 ? '#F6CE4B' : '#AAA'" stroke-width="8"
+        <minus theme="outline" size="9" :fill="dX < 0 ? '#F6CE4B' : 'var(--black)'" stroke-width="8"
           :class="{'glowing': dX < 0}"/>
-        <plus theme="outline" size="9" :fill="dX > 0 ? '#F6CE4B' : '#AAA'" stroke-width="8"
+        <plus theme="outline" size="9" :fill="dX > 0 ? '#F6CE4B' : 'var(--black)'" stroke-width="8"
           :class="{'glowing': dX > 0}"/>
     </div>
   </div>
   <div style="width: 90px; height: 25px; margin-left: 60px; overflow: hidden;
     display: flex; align-items: flex-end; justify-content: center;
-    box-shadow: 0px -13px 3px -12px rgba(0, 0, 0, 0.5)">
+    box-shadow: 0px -13px 3px -12px var(--shadowDark)">
     <div style="width: 70px; height: 70px; margin-bottom: 10px; border-radius: 50%;
-      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5); transition: all 0.2s;"
+      box-shadow: 0px 5px 10px var(--shadowDark); transition: all 0.2s;"
       :style="{transform: `translateY(${active ? '0': '-3px'})`}">
       <div style="width: 70px; height: 70px; border-radius: 50%; box-sizing: border-box;
-        display: flex; align-items: center; justify-content: center; outline: dashed 3px #FFF;
-        background: radial-gradient(#AAA 0, #FFF 55%, #FFF 60%, #DDD 60%, #EEE 63%, #DDD 66%, #FFF 70%);"
+        display: flex; align-items: center; justify-content: center; outline: dashed 3px var(--white);
+        background: radial-gradient(var(--dark) 0, var(--white) 55%, var(--white) 60%, var(--main) 60%, var(--light) 63%, var(--main) 66%, var(--white) 70%);"
         :style="{transform: `rotate(${currentAngle}deg)`, transition: dragging ? 'none' : 'all 0.2s'}"
         @pointerdown="startDrag" @pointerover="changeCursor('ew-resize')"
         @pointerleave="() => {if (!dragging) {changeCursor('default')}}">
         <div style="width: 56px; height: 56px; border-radius: 50%;
-          background: repeating-conic-gradient(transparent 0, transparent 9%, #DDD 9%, #DDD 10%);"></div>
+          background: repeating-conic-gradient(#0000 0, #0000 9%, var(--main) 9%, var(--main) 10%);"></div>
       </div>
     </div>
   </div>
