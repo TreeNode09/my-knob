@@ -12,7 +12,7 @@ export const useColor = defineStore('colors', () => {
             shadowLight: 'rgba(0, 0, 0, 0.5)', shadowMain: 'rgba(0, 0, 0, 0.2)', shadowDark: 'rgba(0, 0, 0, 0.8)'            
         }
     ])
-    const paletteOption = ref(1)
+    const paletteOption = ref(0)
 
     const setOption = (option) => {
         paletteOption.value = option
