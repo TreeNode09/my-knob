@@ -7,10 +7,12 @@
     padding: 5px 10px 10px 10px; background-color: #FFF; border-radius: 10px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5), inset 0px -5px 2px rgba(0, 0, 0, 0.2)">
     <digits :model="model"></digits>
-    <div style="width: 50px; height: 20px; margin: 4px 10px 0  10px;
+    <div style="width: 50px; height: 20px; margin: 4px 10px 0 10px;
       display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between;">
-      <minus theme="outline" size="9" :fill="dX < 0 ? '#F8CA30' : '#AAA'" stroke-width="8"/>
-      <plus theme="outline" size="9" :fill="dX > 0 ? '#F8CA30' : '#AAA'" stroke-width="8"/>
+        <minus theme="outline" size="9" :fill="dX < 0 ? '#F6CE4B' : '#AAA'" stroke-width="8"
+          :class="{'glowing': dX < 0}"/>
+        <plus theme="outline" size="9" :fill="dX > 0 ? '#F6CE4B' : '#AAA'" stroke-width="8"
+          :class="{'glowing': dX > 0}"/>
     </div>
   </div>
   <div style="width: 90px; height: 25px; margin-left: 60px; overflow: hidden;
@@ -62,7 +64,7 @@ let lastX = -1
 watch(() => model.value, (newValue, oldValue) => {
   if (!dragging.value) {
     currentAngle.value = newValue * 360 / props.valuePerLap
-    currentValue.value = newValue    
+    currentValue.value = newValue
   }
 })
 
@@ -115,3 +117,10 @@ const changeCursor = (newCursor) => {
   }
 }
 </script>
+
+<style scoped>
+span.glowing > *
+{
+  filter: drop-shadow(0px 0px 2px #F6CE4B)
+}
+</style>
