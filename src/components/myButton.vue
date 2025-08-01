@@ -1,7 +1,7 @@
 <template>
 <div style="width: 60px; height: 45px; border-radius: 10px; background-color: var(--white);
   display: flex; align-items: center; justify-content: center; transition: all 0.2s;"
-  :style="{transform: `translateY(${+model * 8 - +hovering * 3 + 3}px)`,
+  :style="{transform: `translateY(${+model * 6 - +hovering * 3 + 6}px)`,
   boxShadow: `inset 0px -10px 2px 2px var(--shadowMain)
   ${leftShadow ? ', inset 10px 0px 10px -5px var(--shadowLight)' : ''}
   ${rightShadow ? ', inset -10px 0px 10px -5px var(--shadowLight)' : ''}`}"

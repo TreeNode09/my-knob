@@ -25,10 +25,10 @@
     <div style="display: flex; font-display: row;">
       <div style="height: 16px; background-color: var(--light);
         border-radius: 2px; display: flex; align-items: center; justify-content: center;
-        box-shadow: inset 0px -2px 5px rgba(0, 0, 0, 0.1), inset 0px 2px 5px rgba(0, 0, 0, 0.2);"
+        box-shadow: inset 0px -2px 5px var(--shadowLight), inset 0px 2px 5px var(--shadowMain);"
         :style="{'width': `${length + 16}px`}">
         <div style="width: calc(100% - 16px); height: 4px; border-radius: 2px; background-color: var(--dark);
-          box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.2);"></div>
+          box-shadow: inset 0px 0px 2px var(--shadowMain);"></div>
       </div>
     </div>
   </div>

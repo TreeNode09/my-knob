@@ -31,8 +31,8 @@ import myButtonSet from './components/myButtonSet.vue'
 const colors = useColor()
 
 const value = ref(0)
-const labels = ref(['Light', 'Dark'])
-const options = ref([true, false])
+const labels = ref(['Light', 'Dark', 'Sakura', 'Aqua'])
+const options = ref([true, false, false, false])
 
 const changePalette = () => {
   for (let i = 0; i < options.value.length; i++) {
@@ -54,7 +54,7 @@ body, #app
 *
 {
   --transition-time: 0.5s;
-  transition: background-color var(--transition-time);
+  transition: all var(--transition-time);
 }
 
 @font-face {
