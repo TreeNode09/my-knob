@@ -10,10 +10,10 @@
     box-shadow: 0px 2px 5px var(--shadowMain), inset 0px -2px 2px var(--shadowLight);
     display: flex; align-items: top; justify-content: center;"
     :style="{transform: `translateX(${currentDist + 16}px) translateY(${active ? '-3px': '0'})`,
-    transition: dragging ? 'none' : 'all 0.2s'}"
+    transition: dragging ? 'none' : 'all var(--transition-time)'}"
     @pointerdown="startDrag" @pointerover="changeCursor('ew-resize')"
     @pointerleave="() => {if (!dragging) {changeCursor('default')}}">
-    <div style="width: 3px; height: 3px; border-radius: 50%; margin-top: 2px; transition: background-color 0.3s;"
+    <div style="width: 3px; height: 3px; border-radius: 50%; margin-top: 2px;"
       :style="{backgroundColor: dragging ? 'var(--highlight)' : 'var(--black)',
       boxShadow: dragging ? '0px 0px 2px var(--highlight)' : 'none'}"></div>
   </div>

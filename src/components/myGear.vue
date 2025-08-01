@@ -19,12 +19,12 @@
     display: flex; align-items: flex-end; justify-content: center;
     box-shadow: 0px -13px 3px -12px var(--shadowDark)">
     <div style="width: 70px; height: 70px; margin-bottom: 10px; border-radius: 50%;
-      box-shadow: 0px 5px 10px var(--shadowDark); transition: all 0.2s;"
+      box-shadow: 0px 5px 10px var(--shadowDark); transition: all var(--transition-time);"
       :style="{transform: `translateY(${active ? '0': '-3px'})`}">
       <div style="width: 70px; height: 70px; border-radius: 50%; box-sizing: border-box;
         display: flex; align-items: center; justify-content: center; outline: dashed 3px var(--white);
         background: radial-gradient(var(--dark) 0, var(--white) 55%, var(--white) 60%, var(--main) 60%, var(--light) 63%, var(--main) 66%, var(--white) 70%);"
-        :style="{transform: `rotate(${currentAngle}deg)`, transition: dragging ? 'none' : 'all 0.2s'}"
+        :style="{transform: `rotate(${currentAngle}deg)`, transition: dragging ? 'none' : 'all var(--transition-time)'}"
         @pointerdown="startDrag" @pointerover="changeCursor('ew-resize')"
         @pointerleave="() => {if (!dragging) {changeCursor('default')}}">
         <div style="width: 56px; height: 56px; border-radius: 50%;

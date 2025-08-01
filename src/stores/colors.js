@@ -14,7 +14,7 @@ export const useColor = defineStore('colors', () => {
             highlight: '#F6CE4B'
         }
     ])
-    const paletteOption = ref(1)
+    const paletteOption = ref(0)
 
     const setOption = (option) => {
         paletteOption.value = option

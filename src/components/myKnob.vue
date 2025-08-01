@@ -17,13 +17,14 @@
     </div>
   </div>
   <div style="width: 30px; height: 30px; background-color: var(--white); border-radius: 50%;
-    transition: all 0.2s; box-shadow: 0px 5px 10px var(--shadowMain), inset 0px -2px 1px var(--shadowLight);"
+    transition: all var(--transition-time);
+    box-shadow: 0px 5px 10px var(--shadowMain), inset 0px -2px 1px var(--shadowLight);"
     :style="{transform: `translateY(${active ? '-3px': '0'})`}"
     @pointerdown="startDrag" @pointerover="changeCursor('ns-resize')"
     @pointerleave="() => {if (!dragging) {changeCursor('default')}}">
     <div style="width: 100%; height: 100%; display: flex; align-items: top; justify-content: center;
       border-radius: 50%; border: dotted 2px var(--main); box-sizing: border-box;"
-      :style="{transform: `rotate(${currentAngle}deg)`, transition: dragging ? 'none' : 'all 0.2s'}">
+      :style="{transform: `rotate(${currentAngle}deg)`, transition: dragging ? 'none' : 'all var(--transition-time)'}">
       <div style="width: 0px; height: 50%; border-left: solid 2px var(--black);"></div>
     </div>
   </div>

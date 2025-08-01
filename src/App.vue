@@ -32,7 +32,7 @@ const colors = useColor()
 
 const value = ref(0)
 const labels = ref(['Light', 'Dark'])
-const options = ref([false, true])
+const options = ref([true, false])
 
 const changePalette = () => {
   for (let i = 0; i < options.value.length; i++) {
@@ -53,7 +53,8 @@ body, #app
 
 *
 {
-  transition: background-color 0.5s;
+  --transition-time: 0.5s;
+  transition: background-color var(--transition-time);
 }
 
 @font-face {
