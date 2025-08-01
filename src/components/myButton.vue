@@ -51,7 +51,7 @@ const checkWhiteText = (color) => {
   const b = parseInt(hex.substring(4, 6), 16) / 255
   
   const luminance = (Math.max(r, g, b) + Math.min(r, g, b)) / 2
-  if (luminance >= 0.5) {whiteText.value = false}
+  if (luminance >= 0.6) {whiteText.value = false}
   else {whiteText.value = true}  
 }
 </script>

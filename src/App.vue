@@ -13,7 +13,7 @@
   }">
   <my-knob v-model="value"></my-knob>
   <my-slider v-model="value"></my-slider>
-  <my-spin v-model="value"></my-spin>
+  <my-spin v-model="value" :step="0"></my-spin>
   <my-gear v-model="value"></my-gear>
   <my-button-set v-model="options" :labels="labels" :single="true" @change="changePalette"></my-button-set>
 </div>
@@ -31,8 +31,8 @@ import myButtonSet from './components/myButtonSet.vue'
 const colors = useColor()
 
 const value = ref(0)
-const labels = ref(['Light', 'Dark', 'Sakura', 'Aqua'])
-const options = ref([true, false, false, false])
+const labels = ref(['Light', 'Dark', 'Sakura', 'Aqua', 'Paper'])
+const options = ref([true, false, false, false, false])
 
 const changePalette = () => {
   for (let i = 0; i < options.value.length; i++) {

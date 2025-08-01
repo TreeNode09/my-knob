@@ -46,6 +46,17 @@ export const useColor = defineStore('colors', () => {
             shadowMain: 'rgba(0, 149, 212, 0.25)',
             shadowDark: 'rgba(0, 149, 212, 0.35)',
             highlight: '#00D18F'
+        },
+        {
+            white: '#E3C7A0',
+            light: '#DCB57F',
+            main: '#D3A35F',
+            dark: '#D09A4E',
+            black: '#BF8A40',
+            shadowLight:'rgba(122, 71, 0,  0.2)',
+            shadowMain:'rgba(122, 71, 0, 0.4)',
+            shadowDark:'rgba(122, 71, 0, 0.8)',
+            highlight: '#FFF2E0'
         }
     ])
     const paletteOption = ref(0)
