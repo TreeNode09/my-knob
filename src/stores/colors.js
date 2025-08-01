@@ -8,11 +8,11 @@ export const useColor = defineStore('colors', () => {
             shadowLight: 'rgba(0, 0, 0, 0.1)', shadowMain: 'rgba(0, 0, 0, 0.2)', shadowDark: 'rgba(0, 0, 0, 0.5)'
         },
         {
-            white: '#999', light: '#888', main: '#777', dark: '#666', black: '#333',
+            white: '#444', light: '#777', main: '#555', dark: '#444', black: '#777',
             shadowLight: 'rgba(0, 0, 0, 0.5)', shadowMain: 'rgba(0, 0, 0, 0.2)', shadowDark: 'rgba(0, 0, 0, 0.8)'            
         }
     ])
-    const paletteOption = ref(0)
+    const paletteOption = ref(1)
 
     const setOption = (option) => {
         paletteOption.value = option

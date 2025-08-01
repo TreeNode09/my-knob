@@ -14,6 +14,7 @@
   <my-slider v-model="value"></my-slider>
   <my-spin v-model="value"></my-spin>
   <my-gear v-model="value"></my-gear>
+  <my-button-set v-model="options" :labels="labels" :single="true" @change="changePalette"></my-button-set>
 </div>
 </template>
 
@@ -24,20 +25,34 @@ import myKnob from './components/myKnob.vue'
 import mySlider from './components/mySlider.vue'
 import mySpin from './components/mySpin.vue'
 import myGear from './components/myGear.vue'
+import myButtonSet from './components/myButtonSet.vue'
 
 const colors = useColor()
+
 const value = ref(0)
+const labels = ref(['Light', 'Dark'])
+const options = ref([false, true])
+
+const changePalette = () => {
+  for (let i = 0; i < options.value.length; i++) {
+    if (options.value[i] === true) {
+      colors.setOption(i)
+      break
+    }
+  }
+}
 </script>
 
 <style>
-body, #app {
+body, #app
+{
   margin: 0;
   padding: 0;
 }
 
 *
 {
-  transition: background-color 0.2s;
+  transition: background-color 0.5s;
 }
 
 @font-face {

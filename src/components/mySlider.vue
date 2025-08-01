@@ -13,8 +13,9 @@
     transition: dragging ? 'none' : 'all 0.2s'}"
     @pointerdown="startDrag" @pointerover="changeCursor('ew-resize')"
     @pointerleave="() => {if (!dragging) {changeCursor('default')}}">
-    <div style="width: 3px; height: 3px; border-radius: 50%; margin-top: 2px;
-      background-color: var(--black);"></div>
+    <div style="width: 3px; height: 3px; border-radius: 50%; margin-top: 2px; transition: background-color 0.3s;"
+      :style="{backgroundColor: dragging ? '#F6CE4B' : 'var(--black)',
+      boxShadow: dragging ? '0px 0px 2px #F6CE4B' : 'none'}"></div>
   </div>
   <div style="display: flex; flex-direction: column; align-items: center;">
     <div style="width: calc(100% - 16px); height: 4px; border: 0; margin-bottom: 2px;
@@ -110,3 +111,11 @@ const changeCursor = (newCursor) => {
   else {active.value = false}
 }
 </script>
+
+<style scoped>
+.drag
+{
+  background-color: #F6CE4B;
+  box-shadow: 0px 0px 2px #F6CE4B;
+}
+</style>
