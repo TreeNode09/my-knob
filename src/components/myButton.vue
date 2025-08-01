@@ -7,7 +7,7 @@
   ${rightShadow ? ', inset -10px 0px 10px -5px var(--shadowLight)' : ''}`}"
   @pointerdown="handleClick" @pointerenter="hovering = true" @pointerleave="hovering = false">
   <div style="margin-bottom: 10px; font-size: 12px; font-family: Consolas; font-weight: bold;"
-    :style="{color: whiteText ? '#FFFA' : '#000A'}">{{ label }}</div>
+    :style="{color: model ? 'var(--highlight)' : `${whiteText ? '#FFFA' : '#000A'}`}">{{ label }}</div>
 </div>
 </template>
 

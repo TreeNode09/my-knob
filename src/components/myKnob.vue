@@ -8,11 +8,11 @@
   <digits :model="model"></digits>
   <div style="width: 20px; height: 30px;position: relative;">
     <div style="position: absolute; top: -2px; left: 4px;">
-      <up-one theme="filled" size="12" :fill="dY > 0 ? '#F6CE4B' : 'var(--black)'" strokeLinejoin="miter"
+      <up-one theme="filled" size="12" :fill="dY > 0 ? 'var(--highlight)' : 'var(--black)'" strokeLinejoin="miter"
         :class="{'glowing': dY > 0}"/>
     </div>
     <div style="position: absolute; top: 8px; left: 4px;">
-      <down-one theme="filled" size="12" :fill="dY < 0 ? '#F6CE4B' : 'var(--black)'" strokeLinejoin="miter"
+      <down-one theme="filled" size="12" :fill="dY < 0 ? 'var(--highlight)' : 'var(--black)'" strokeLinejoin="miter"
         :class="{'glowing': dY < 0}"/>
     </div>
   </div>
@@ -116,6 +116,6 @@ const changeCursor = (newCursor) => {
 <style scoped>
 span.glowing > *
 {
-  filter: drop-shadow(0px 0px 2px #F6CE4B)
+  filter: drop-shadow(0px 0px 2px var(--highlight))
 }
 </style>

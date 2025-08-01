@@ -16,7 +16,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import myButton from './myButton.vue'
 
 const props = defineProps({
@@ -29,9 +28,12 @@ const emits = defineEmits(['change'])
 
 const handleChange = (currentIndex) => {
   if (props.single === true) {
-    model.value.forEach((element, index) => {
-      if (currentIndex !== index) {model.value[index] = false}
-    })
+    if (model.value[currentIndex] === false) {model.value[currentIndex] = true}
+    else {
+      model.value.forEach((element, index) => {
+        if (currentIndex !== index) {model.value[index] = false}
+      })      
+    }
   }
   emits('change')
 }

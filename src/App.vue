@@ -8,7 +8,8 @@
     '--black': colors.palettes[colors.paletteOption].black,
     '--shadowLight': colors.palettes[colors.paletteOption].shadowLight,
     '--shadowMain': colors.palettes[colors.paletteOption].shadowMain,
-    '--shadowDark': colors.palettes[colors.paletteOption].shadowDark
+    '--shadowDark': colors.palettes[colors.paletteOption].shadowDark,
+    '--highlight': colors.palettes[colors.paletteOption].highlight
   }">
   <my-knob v-model="value"></my-knob>
   <my-slider v-model="value"></my-slider>
