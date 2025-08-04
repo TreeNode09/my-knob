@@ -26,26 +26,15 @@ export const useColor = defineStore('colors', () => {
             highlight: '#F6CE4B'
         },
         {
-            white: '#FFF9FB',
-            light: '#FFE6EB',
-            main: '#FFB7C5',
-            dark: '#F7A1BB',
-            black: '#F28CAB',
-            shadowLight: 'rgba(231, 84, 128, 0.1)',
-            shadowMain: 'rgba(231, 84, 128, 0.2)',
-            shadowDark: 'rgba(231, 84, 128, 0.4)',
-            highlight: '#E75480'
-        },
-        {
-            white: '#FFFFFF',
-            light: '#E6F7FF',
-            main: '#80CCFF',
-            dark: '#66C2FF',
-            black: '#7F9AA8',
-            shadowLight: 'rgba(0, 149, 255, 0.15)',
-            shadowMain: 'rgba(0, 149, 212, 0.25)',
-            shadowDark: 'rgba(0, 149, 212, 0.35)',
-            highlight: '#00D18F'
+            white: '#02808F',
+            light: '#03C39A',
+            main: '#01A897',
+            dark: '#02808F',
+            black: '#03C39A',
+            shadowLight: 'rgba(2, 32, 44, 0.2)',
+            shadowMain: 'rgba(2, 32, 44, 0.5)',
+            shadowDark: 'rgba(2, 32, 44, 0.8)',
+            highlight: '#F0F3BC'
         },
         {
             white: '#E3C7A0',
