@@ -1,26 +1,29 @@
 <template>
-<div style="display: flex; flex-direction: row; margin: 10px 0">
-  <input ref="beginInput" type="color" v-model="beginHex"></input>
-  <button @click="beginInput.click()" style="border-radius: 50% 0 0 50%;"
-    :style="{backgroundColor: beginHex}"></button>
+<div style="display: flex; flex-direction: row; margin: 10px; padding: 10px 10px 15px 10px;
+  border-radius: 35px; background-color: var(--white);
+  box-shadow: 0px 5px 10px var(--shadowDark), inset 0px -5px 2px var(--shadowMain)">
+  <button @click="beginInput.click()" style="border-radius: 25px 0 0 25px;"
+    :style="{backgroundColor: beginHex}">
+    <input ref="beginInput" type="color" v-model="beginHex"></input>
+  </button>
   <div style="display: flex; flex-direction: column;">
-    <div style="width: 200px; height: 20px" :style="{background: `linear-gradient(90deg, ${color})`}"></div>
-    <div style="width: 200px; height: 20px; margin-top: 2px"
+    <div style="width: 120px; height: 20px" :style="{background: `linear-gradient(90deg, ${color})`}"></div>
+    <div style="width: 120px; height: 20px; margin-top: 5px"
       :style="{background: `linear-gradient(90deg, ${beginHex} 0%, ${endHex} 100%)`}"></div>    
   </div>
-  <button @click="endInput.click()" style="border-radius: 0 50% 50% 0;"
-    :style="{backgroundColor: endHex}"></button>
-  <input ref="endInput" type="color" v-model="endHex"></input>
+  <button @click="endInput.click()" style="border-radius: 0 25px 25px 0;"
+    :style="{backgroundColor: endHex}">
+    <input ref="endInput" type="color" v-model="endHex"></input>
+  </button>
 </div>
-
 </template>
 
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 
 const color = ref('')
-const beginHex = ref('#22FF3C')
-const endHex = ref('#808020')
+const beginHex = ref('#66B26F')
+const endHex = ref('#B14EDF')
 
 const beginInput = ref(null)
 const endInput = ref(null)
@@ -81,18 +84,22 @@ input[type="color"]
   width: 0;
   height: 0;
   opacity: 0;
+  transform: translateY(-25px);
 }
 
 button
 {
   width: 50px;
-  transition: box-shadow 0.3s;
+  transition: all 0.3s;
+  transition-property: box-shadow, transform;
 }
 
 button:hover
 {
   border: none;
-  box-shadow: inset 0px 0px 0px 50px #FFF8;
+  box-shadow: inset 0px 0px 0px 50px #FFF5;
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 5px var(--shadowMain);
 }
 
 button:focus

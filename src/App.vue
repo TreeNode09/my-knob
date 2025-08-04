@@ -16,7 +16,7 @@
   <my-spin v-model="value" :step="0"></my-spin>
   <my-gear v-model="value"></my-gear>
   <my-button-set v-model="options" :labels="labels" :single="true" @change="changePalette"></my-button-set>
-  <hsl-gradient></hsl-gradient>
+  <my-gradient></my-gradient>
 </div>
 </template>
 
@@ -28,7 +28,7 @@ import mySlider from './components/mySlider.vue'
 import mySpin from './components/mySpin.vue'
 import myGear from './components/myGear.vue'
 import myButtonSet from './components/myButtonSet.vue'
-import hslGradient from './components/hslGradient.vue'
+import myGradient from './components/myGradient.vue'
 
 const colors = useColor()
 
