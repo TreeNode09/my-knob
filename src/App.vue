@@ -17,6 +17,7 @@
   <my-gear v-model="value"></my-gear>
   <my-button-set v-model="options" :labels="labels" :single="true" @change="changePalette"></my-button-set>
   <my-gradient></my-gradient>
+  <my-audio></my-audio>
 </div>
 </template>
 
@@ -29,6 +30,7 @@ import mySpin from './components/mySpin.vue'
 import myGear from './components/myGear.vue'
 import myButtonSet from './components/myButtonSet.vue'
 import myGradient from './components/myGradient.vue'
+import myAudio from './components/myAudio.vue'
 
 const colors = useColor()
 

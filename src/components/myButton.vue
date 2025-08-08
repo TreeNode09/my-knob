@@ -6,8 +6,9 @@
   ${leftShadow ? ', inset 10px 0px 10px -5px var(--shadowLight)' : ''}
   ${rightShadow ? ', inset -10px 0px 10px -5px var(--shadowLight)' : ''}`}"
   @pointerdown="handleClick" @pointerenter="hovering = true" @pointerleave="hovering = false">
-  <div style="margin-bottom: 10px; font-size: 12px; font-family: Consolas; font-weight: bold;"
+  <div style="margin-bottom: 10px; font-family: Consolas; font-weight: bold;"
     :style="{color: model ? 'var(--highlight)' : `${whiteText ? '#FFFA' : '#000A'}`,
+    fontSize: largeText ? '24px' : '12px',
     textShadow: (model && whiteText) ? '0px 0px 5px var(--highlight)' : 'none'}">{{ label }}</div>
 </div>
 </template>
@@ -18,6 +19,7 @@ import { useColor } from '../stores/colors'
 
 const props = defineProps({
   label: {type: String, default: 'Hey!'},
+  largeText: {type: Boolean, default: false},
   leftShadow: {type: Boolean, default: false},
   rightShadow: {type: Boolean, default: false}
 })
