@@ -32,7 +32,9 @@
     </my-base>
     <my-gear v-model="value"></my-gear>
   </div>
-  <my-button-set v-model="options" :labels="labels" :single="true" @change="changePalette"></my-button-set>
+  <my-base style="height: 30px; align-items: flex-end;">
+    <my-button-set v-model="options" :labels="labels" :single="true" @change="changePalette"></my-button-set>
+  </my-base>
   <my-gradient></my-gradient>
   <my-audio></my-audio>
 </div>

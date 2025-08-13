@@ -1,19 +1,19 @@
 <template>
-<div style="height: 30px; display: flex; flex-direction: row; align-items: flex-end; justify-content: center;
-  margin: 10px; padding: 5px 10px 10px 10px; background-color: var(--white); border-radius: 10px;
-  box-shadow: 0px 5px 10px var(--shadowDark), inset 0px -5px 2px var(--shadowMain)">
-  <div style="height: 45px; border-radius: 10px; overflow: hidden; transition: all 0.3s; display: flex; align-items: end;"
-    :style="{boxShadow: `inset 0px -10px 0px 0px var(--shadowDark),
+<my-base class="audio-base" style="height: 30px; align-items: flex-end;">
+  <div style="height: 45px; border-radius: 10px; overflow: hidden; transition: all 0.3s; display: flex;
+    align-items: end;" :style="{boxShadow: `inset 0px -10px 0px 0px var(--shadowDark),
     0px ${playing ? '5' : '8'}px 10px -8px var(--shadowDark)`}">
     <my-button v-model="playing" label="♫" large-text></my-button>
   </div>
-  <div style="height: 100%; margin: auto 10px;">Open Console</div>
-</div>
+  <my-slider v-model="currentTime" :length="playing ? 100 : 0" :min="0" :max="duration"></my-slider>
+</my-base>
 </template>
 
 <script setup>
 import { ref, watch, onMounted, onUnmounted } from 'vue'
+import myBase from './myBase.vue'
 import myButton from './myButton.vue'
+import mySlider from './mySlider.vue'
 
 const audioContext = ref(null)
 const audioBuffer = ref(null)
@@ -141,3 +141,10 @@ watch(() => playing.value, (newValue, oldValue) => {
   }
 })
 </script>
+
+<style scoped>
+div:nth-last-of-type(-n+2)
+{
+  transform: translateY(-5px);
+}
+</style>
