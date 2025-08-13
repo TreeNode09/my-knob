@@ -31,7 +31,7 @@ let animationFrame = null
 
 const style = ref('')
 
-const AUDIO_FILE_PATH = 'src/assets/random.mp3'
+const AUDIO_FILE_PATH = 'src/assets/CoffeeZone.mp3'
 
 onMounted(() => {
   audioContext.value = new window.AudioContext()
@@ -45,9 +45,7 @@ onMounted(() => {
         style.value += `#${color} ${i}%, #${color} ${i + 1}%, `
       }
       style.value += `#${mapColor(frequencyData.value[100])} 100%`
-      setTimeout(() => {
-        console.log(`%c${' '.repeat(70)}`, `background: linear-gradient(90deg, ${style.value})`)
-      }, 10)
+      console.log(`%c${' '.repeat(70)}`, `background: linear-gradient(90deg, ${style.value})`)
     }
    }, 80)
 })
@@ -77,7 +75,7 @@ const mapColor = (frequency) => {
     {r: 48, g: 48, b: 48},
     {r: 93, g: 226, b: 241},
     {r: 255, g: 255, b: 255},
-    {r: 254, g: 153, b: 0},
+    {r: 255, g: 217, b: 0},
     {r: 228, g: 8, b: 10}
   ]
   const section = Math.floor(Math.max(Math.min(frequency, 255), 0) / 64)
