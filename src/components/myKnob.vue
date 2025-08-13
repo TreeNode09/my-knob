@@ -2,39 +2,22 @@
 <div v-if="dragging" style="width: 100%; height: 100%; position: absolute; left: 0; top: 0; z-index: 9999;"
   @pointermove="getMousePosition" @pointerup="dragging = false" @pointerout="cancelDrag">
 </div>
-<div style="display: flex; flex-direction: row; align-items: center; justify-content: center; margin: 10px;
-  padding: 5px 10px 10px 10px; background-color: var(--white); ; border-radius: 10px;
-  box-shadow: 0px 5px 10px var(--shadowDark), inset 0px -5px 2px var(--shadowMain)">
-  <digits :model="model"></digits>
-  <div style="width: 20px; height: 30px;position: relative;">
-    <div style="position: absolute; top: -2px; left: 4px;">
-      <up-one theme="filled" size="12" :fill="dY > 0 ? 'var(--highlight)' : 'var(--black)'" strokeLinejoin="miter"
-        :class="{'glowing': dY > 0}"/>
-    </div>
-    <div style="position: absolute; top: 8px; left: 4px;">
-      <down-one theme="filled" size="12" :fill="dY < 0 ? 'var(--highlight)' : 'var(--black)'" strokeLinejoin="miter"
-        :class="{'glowing': dY < 0}"/>
-    </div>
-  </div>
-  <div style="width: 30px; height: 30px; background-color: var(--white); border-radius: 50%;
-    transition: all var(--transition-time);
-    box-shadow: 0px 5px 10px var(--shadowMain), inset 0px -2px 1px var(--shadowLight);"
-    :style="{transform: `translateY(${active ? '-3px': '0'})`}"
-    @pointerdown="startDrag" @pointerover="changeCursor('ns-resize')"
-    @pointerleave="() => {if (!dragging) {changeCursor('default')}}">
-    <div style="width: 100%; height: 100%; display: flex; align-items: top; justify-content: center;
-      border-radius: 50%; border: dotted 2px var(--main); box-sizing: border-box;"
-      :style="{transform: `rotate(${currentAngle}deg)`, transition: dragging ? 'none' : 'all var(--transition-time)'}">
-      <div style="width: 0px; height: 50%; border-left: solid 2px var(--black);"></div>
-    </div>
+<div style="width: 30px; height: 30px; background-color: var(--white); border-radius: 50%;
+  transition: all var(--transition-time);
+  box-shadow: 0px 5px 10px var(--shadowMain), inset 0px -2px 1px var(--shadowLight);"
+  :style="{transform: `translateY(${active ? '-3px': '0'})`}"
+  @pointerdown="startDrag" @pointerover="changeCursor('ns-resize')"
+  @pointerleave="() => {if (!dragging) {changeCursor('default')}}">
+  <div style="width: 100%; height: 100%; display: flex; align-items: top; justify-content: center;
+    border-radius: 50%; border: dotted 2px var(--main); box-sizing: border-box;"
+    :style="{transform: `rotate(${currentAngle}deg)`, transition: dragging ? 'none' : 'all var(--transition-time)'}">
+    <div style="width: 0px; height: 50%; border-left: solid 2px var(--black);"></div>
   </div>
 </div>
 </template>
 
 <script setup>
 import { ref, onMounted, watch } from 'vue'
-import { DownOne, UpOne } from '@icon-park/vue-next'
-import digits from './digits.vue'
 
 const props = defineProps({
   valuePerLap: {type: Number, default: 100},

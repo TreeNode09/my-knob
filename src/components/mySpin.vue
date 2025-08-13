@@ -2,9 +2,7 @@
 <div v-if="dragging" style="width: 100%; height: 100%; position: absolute; left: 0; top: 0; z-index: 9999;"
   @pointermove="getMousePosition" @pointerup="dragging = false" @pointerout="cancelDrag">
 </div>
-<div style="display: flex; flex-direction: row; align-items: center; justify-content: center; margin: 10px;
-  padding: 5px 10px 10px 10px; position: relative; background-color: var(--white); border-radius: 10px;
-  box-shadow: 0px 5px 10px var(--shadowDark), inset 0px -5px 2px var(--shadowMain)">
+<div style="position: relative; width: 100px; height: 100px;">
   <div id="outer" ref="spin" style="width: 100px; height: 100px; border-radius: 50%;
     box-shadow: 0px 0px 3px var(--shadowDark); display: flex; align-items: center; justify-content: center;
     background: repeating-conic-gradient(var(--white) 0%, var(--light) 1%, var(--light) 2%, var(--dark) 3%, var(--main) 3%, var(--light) 5%);"
@@ -12,17 +10,16 @@
     @pointerdown="startDrag" @pointerover="changeCursor('grab')"
     @pointerleave="() => {if (!dragging) {changeCursor('default')}}"></div>
   <div id="inner" style="width: 75px; height: 75px; background-color: var(--white); border-radius: 50%;
-    position: absolute; top: 17.5px; left: 22.5px;
+    position: absolute; top: 12.5px; left: 12.5px;
     display: flex; align-items: center; justify-content: center;
     box-shadow: inset 0px 0px 3px var(--shadowDark);">
-    <digits :model="model"></digits>
+    <slot></slot>
   </div>
 </div>
 </template>
 
 <script setup>
 import { ref, onMounted, watch } from 'vue'
-import digits from './digits.vue'
 
 const props = defineProps({
   valuePerLap: {type: Number, default: 100},

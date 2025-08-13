@@ -11,10 +11,27 @@
     '--shadowDark': colors.palettes[colors.paletteOption].shadowDark,
     '--highlight': colors.palettes[colors.paletteOption].highlight
   }">
-  <my-knob v-model="value"></my-knob>
-  <my-slider v-model="value"></my-slider>
-  <my-spin v-model="value" :step="0"></my-spin>
-  <my-gear v-model="value"></my-gear>
+  <my-base>
+    <digits :model="value"></digits>
+    <my-signal-light1 :trend="dValue"></my-signal-light1>
+    <my-knob v-model="value"></my-knob>
+  </my-base>
+  <my-base>
+    <digits :model="value"></digits>
+    <my-slider v-model="value"></my-slider>
+  </my-base>
+  <my-base>
+    <my-spin v-model="value" :step="0">
+      <digits :model="value"></digits>
+    </my-spin>
+  </my-base>
+  <div style="margin: 10px">
+    <my-base style="margin: 0;">
+      <digits :model="value"></digits>
+      <my-signal-light2 :trend="dValue"></my-signal-light2>
+    </my-base>
+    <my-gear v-model="value"></my-gear>
+  </div>
   <my-button-set v-model="options" :labels="labels" :single="true" @change="changePalette"></my-button-set>
   <my-gradient></my-gradient>
   <my-audio></my-audio>
@@ -22,12 +39,18 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useColor } from './stores/colors'
+
+import myBase from './components/myBase.vue'
+import digits from './components/digits.vue'
+
 import myKnob from './components/myKnob.vue'
+import mySignalLight1 from './components/mySignalLight1.vue'
 import mySlider from './components/mySlider.vue'
 import mySpin from './components/mySpin.vue'
 import myGear from './components/myGear.vue'
+import mySignalLight2 from './components/mySignalLight2.vue'
 import myButtonSet from './components/myButtonSet.vue'
 import myGradient from './components/myGradient.vue'
 import myAudio from './components/myAudio.vue'
@@ -35,8 +58,11 @@ import myAudio from './components/myAudio.vue'
 const colors = useColor()
 
 const value = ref(0)
+const dValue = ref(0)
 const labels = ref(['Light', 'Dark','Aqua', 'Paper'])
 const options = ref([true, false, false, false])
+
+watch(() => value.value, (newValue, oldValue) =>{dValue.value = newValue - oldValue})
 
 const changePalette = () => {
   for (let i = 0; i < options.value.length; i++) {
